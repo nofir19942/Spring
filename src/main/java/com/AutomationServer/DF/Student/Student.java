@@ -1,8 +1,22 @@
 package com.AutomationServer.DF.Student;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity //Hibernet
+@Table
 public class Student {
+    @Id
+    @SequenceGenerator(
+            name = "student_seq",
+            sequenceName = "student_seq",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "student_seq"
+    )
+
     private long id;
     private String name;
     private String email;
